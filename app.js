@@ -10,11 +10,11 @@ app.get("/", (req, res, next) => {
   res.send(`
     <html>
       <head>
-        <title>Node Js Web Server</title>
+        <title>Node Js Web Server V2</title>
       </head>
     </html>
     <body>
-      <h1>Hello world! I'm a Node/Express Js web server...</h1>
+      <h1>Hello world! I'm a Node/Express Js web server version 2...</h1>
     </body>
     `);
   next();
