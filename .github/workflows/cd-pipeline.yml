@@ -31,12 +31,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Authenticate for GCP
-        id: gcp-auth
-        uses: google-github-actions/auth@v0
-        with:
-          credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0
 
@@ -55,6 +49,12 @@ jobs:
       - name: Push the image to Docker hub
         run: |
           docker push ${{env.IMAGE}}
+
+      - name: Authenticate for GCP
+        id: gcp-auth
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT }}
 
       - name: Enable the Billing API
         run: |
